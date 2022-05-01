@@ -28,9 +28,9 @@ echo  'a:hover, a:active {'\
       '}'
 
 echo '</style>'
+echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
 echo '</head>'
-echo '<body style="background-color:#B8B8B8">'
-
+echo '<body>'
 echo '<div class="vertical-menu"><img src="https://scmtech.in/assets/images/grey.png" style="position:relative; TOP:5px; LEFT:850px; WIDTH:400px; HEIGHT:80px;"></img>'
 
 echo "<br>"
@@ -54,7 +54,9 @@ echo '<div class="vertical-menu"></div><a href="/cgi-bin/charger/send_charger_in
 
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/charger/check_commit_id.sh" class="active"><b>Get COMMIT ID for all chargers</b></a>'
 
+echo '<div class="vertical-menu"></div><a href="/cgi-bin/charger/clear_attached_butler.sh" class="active"><b>Clear attached Butler from Charger</b></a>'
 
+echo '</div>'
 echo '</body>'
 echo '</html>'
 

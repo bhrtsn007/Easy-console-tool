@@ -1,0 +1,7 @@
+body{
+  background: url(gor_logo.png) no-repeat;
+  background-size: cover;
+}
+.container h1{
+	font-size: 19px;
+}

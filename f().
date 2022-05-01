@@ -1,0 +1,76 @@
+f().
+F1 = fun() ->
+    B = #{blocked_from_task_assignment => [],
+            blocked_from_task_execution => [],is_available => false},
+    {ok, RL} = rackinfo:search_by([{lifted_butler_id, equal, null}, {is_blocked_map, equal, B}], key),
+    Rackfaulty=lists:filter(
+                fun(R) ->
+                    {ok, []} == ppstaskrec:search_by([{rack, equal, {rackrec, R, 0}}, {status, equal, {pending,started}}], key)
+                    andalso {ok, []} == ppstaskrec:search_by([{rack, equal, {rackrec, R, 1}}, {status, equal, {pending,started}}], key)
+                    andalso {ok, []} == audittaskrec:search_by([{rack, equal, {rackrec, R, 0}}, {status, equal, {pending,started}}], key)
+                    andalso {ok, []} == audittaskrec:search_by([{rack, equal, {rackrec, R, 1}}, {status, equal, {pending,started}}], key)
+                end,
+                RL
+                ),
+    io:format("All faulty Rack ~p~n", [Rackfaulty]),
+    lists:foreach(fun(Id) ->
+        io:format("Correcting Rack ~p~n", [Id])
+        end, Rackfaulty)
+    end.
+
+F1().
+
+
+
+
+
+Fun = fun(_JobRef, _DateTime) -> 
+    B = #{blocked_from_task_assignment => [],blocked_from_task_execution => [],is_available => false},
+    {ok, RL} = rackinfo:search_by([{lifted_butler_id, equal, null}, {is_blocked_map, equal, B}], key),
+    Rackfaulty=lists:filter(
+                fun(R) ->
+                    {ok, []} == ppstaskrec:search_by([{rack, equal, {rackrec, R, 0}}, {status, equal, {pending,started}}], key)
+                    andalso {ok, []} == ppstaskrec:search_by([{rack, equal, {rackrec, R, 1}}, {status, equal, {pending,started}}], key)
+                    andalso {ok, []} == audittaskrec:search_by([{rack, equal, {rackrec, R, 0}}, {status, equal, {pending,started}}], key)
+                    andalso {ok, []} == audittaskrec:search_by([{rack, equal, {rackrec, R, 1}}, {status, equal, {pending,started}}], key)
+                end,
+                RL
+                ),
+    lager:log(info, [],"Rack which are having is_available false but not having any task associated = ~p~n", [Rackfaulty]),
+    lists:foreach(fun(Id) ->
+        lager:log(info, [],"Deassigning Task from Rack = ~p  ", [Id]),
+        butler_task_functions:task_deassigned_to_rack(Id)
+        end, Rackfaulty)  
+    end,
+Jobb = {{daily, {every, {30, min}, {between, {12, am}, {11, 59, pm}}}}, Fun},                                                     
+Ref = erlcron:cron(Jobb).
+
+
+{ok,Duration}={ok,7},
+{CurrentDate, Time} = calendar:universal_time(),
+ArchiveDate = calendar:gregorian_days_to_date(calendar:date_to_gregorian_days(CurrentDate) - Duration).
+db_archive:archive(put_output1, [{updated_time, lessthan, {ArchiveDate, Time}}, {status, equal, completed}]).
+
+
+
+
+
+
+
+
+
+
+
+
+f().
+ChangeStatus =
+fun() ->
+Rack= [<<"1307">>,<<"2610">>,<<"4397">>],
+io:format("Total Rack ~p~n", [length(Rack)]),
+lists:foreach(fun(Id) ->
+   io:format("Rack ~p", [Id]),
+   butler_task_functions:task_deassigned_to_rack(Id)
+   end, Rack)
+end.
+ChangeStatus().
+

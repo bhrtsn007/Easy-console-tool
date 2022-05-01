@@ -1,25 +1,27 @@
 #!/bin/bash
 cancel_some_order () {
-    order_id=`sshpass -p '46VNZk7zrWhm' ssh -o StrictHostKeyChecking=no -t gor@172.19.40.34 "/home/gor/test.sh $1 " | head -3 | tail -1 | grep -o '[[:digit:]]*'`
+    order_id=`sshpass -p '2sMcZ3pdTcp5v' ssh -o StrictHostKeyChecking=no -t gor@172.19.40.34 "/home/gor/easy_console/test.sh $1 " | head -3 | tail -1 | grep -o '[[:digit:]]*'`
     echo "<br>"
     echo $order_id
     echo "<br>"
-    order_check=`sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript order_node get_by_id "[<<\"$order_id\">>]." | head -3 | grep -E 'temporary_unfulfillable|created|pending|complete'`
+    order_check=`sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript order_node get_by_id "[<<\"$order_id\">>]." | head -3 | grep -E 'temporary_unfulfillable|created|pending|complete|inventory_awaited'`
     if [ ! -n "$order_check" ]
     then
         echo "Order is not in created,pending, temporary_unfulfillable or complete"
 	echo "<br>"
-        echo "Cancelling Order from platform"
-        echo '<pre>'
-        sshpass -p '46VNZk7zrWhm' ssh -o StrictHostKeyChecking=no -t gor@172.19.40.34 "/home/gor/update_SR_to_cancel.sh $1 " 
-        echo '</pre>'
         echo "Cancelling order from Core server"
         echo '<pre>'
         sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript order_node update_columns_by_id "[<<\"$order_id\">>,[{'status','cancelled'}]]."
+        
+        echo '</pre>'
+        echo "Cancelling Order from platform"
+        echo '<pre>'
+        sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript station_recovery send_notification "[{'order_notification',[<<\"$order_id\">>]}]."
+        #sshpass -p '2sMcZ3pdTcp5v' ssh -o StrictHostKeyChecking=no -t gor@172.19.40.34 "/home/gor/easy_console/update_SR_to_cancel.sh $1 " 
         echo '</pre>'
         echo "New Order status from platform"
         echo '<pre>'
-        sshpass -p '46VNZk7zrWhm' ssh -o StrictHostKeyChecking=no -t gor@172.19.40.34 "/home/gor/updated_status.sh $1 "
+        sshpass -p '2sMcZ3pdTcp5v' ssh -o StrictHostKeyChecking=no -t gor@172.19.40.34 "/home/gor/easy_console/updated_status.sh $1 "
         echo '</pre>'
         echo "New Status on Core"
         echo '<pre>'
@@ -36,10 +38,10 @@ echo '<html>'
 echo '<head>'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
 echo '<title>cancelling unfulfillable order</title>'
+echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
 echo '</head>'
-echo '<body style="background-color:#B8B8B8">'
-
-echo '<img src="https://scmtech.in/assets/images/grey.png" style="position:fixed; TOP:5px; LEFT:850px; WIDTH:400px; HEIGHT:80px;"></img>'
+echo '<body>'
+echo '<div class=container>'
 echo "<br>"
 echo "<br>"
 echo "<br>"
@@ -77,6 +79,7 @@ echo "<br>"
      echo '<br>'
      cancel_some_order $XX 
   fi
+echo '</div>'
 echo '</body>'
 echo '</html>'
 

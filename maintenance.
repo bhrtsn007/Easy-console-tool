@@ -1,0 +1,124 @@
+debug.log.0:2020-11-10 20:50:40.840 [info] <0.7551.1044>@put_functions:create_put_tasks:3658 Task = {ppstaskrec,undefined,39,{rackrec,<<"392">>,0},[{ppsbinorderrec,"7",[{taskputplan,{put_output1,<<"e6c386e9-f417-42b3-9f26-96a552d51dba">>,<<"16543405">>,{39,"7"},[{storage_node,<<"4045e2bf-b99d-47ea-8526-4c17520cc002">>,item,#{audit_marked => false,barcode_references => [<<"32331">>],barcode_type => nonserialized,base_height => undefined,bottom_left_corner => {0,0,0},details => <<"{\"product_sku\":\"427255448065\",\"client_id\":\"1016\"}">>,dimension => {30.48,25.4,5.08},handling_type => <<"normal">>,height => 0,is_marked => true,label => <<"Item">>,mass => 0.39916096,nesting_attributes => undefined,orientation_preference => false,pick_properties => [{14741,<<"32331">>,{12,0}}],positions_occupied => undefined,prod_exclusion_tags => [{<<"face">>,[]},{<<"slot">>,[]},{<<"msu">>,[]},{<<"shelf">>,[]}],put_status => undefined,quantity => 12,stackable_count => inf,stacking => {30.48,25.4,5.08},storage_node_type_id => <<"32331">>,storage_tag_list => [<<"Medium">>,<<"Large">>,<<"Extra_Large">>,<<"Small">>],top_right_corner => {30.48,25.4,5.08},tpid => 14741},undefined}],[{<<"adcec66a-bc5f-4935-a46d-c3a03509a0f7">>,4}],4,calculated,{scanned,{39,"7",back_39}},"392.0.C.01-C.02-C.03",false,plan,undefined,{{2020,11,11},{1,50,40}},<<"P4385530">>},scanned}]}],{pending,created},put,false}
+
+
+
+debug.log.0:2020-11-10 20:50:40.867 [info] <0.7551.1044>@put_functions:create_put_tasks:3658 Task = {ppstaskrec,undefined,39,{rackrec,<<"2648">>,0},[{ppsbinorderrec,"7",[{taskputplan,{put_output1,<<"da3ff8f1-4d63-4b89-b81c-bb52522183ff">>,<<"16543405">>,{39,"7"},[{storage_node,<<"4045e2bf-b99d-47ea-8526-4c17520cc002">>,item,#{audit_marked => false,barcode_references => [<<"32331">>],barcode_type => nonserialized,base_height => undefined,bottom_left_corner => {0,0,0},details => <<"{\"product_sku\":\"427255448065\",\"client_id\":\"1016\"}">>,dimension => {30.48,25.4,5.08},handling_type => <<"normal">>,height => 0,is_marked => true,label => <<"Item">>,mass => 0.39916096,nesting_attributes => undefined,orientation_preference => false,pick_properties => [{14741,<<"32331">>,{12,0}}],positions_occupied => undefined,prod_exclusion_tags => [{<<"face">>,[]},{<<"slot">>,[]},{<<"msu">>,[]},{<<"shelf">>,[]}],put_status => undefined,quantity => 12,stackable_count => inf,stacking => {30.48,25.4,5.08},storage_node_type_id => <<"32331">>,storage_tag_list => [<<"Medium">>,<<"Large">>,<<"Extra_Large">>,<<"Small">>],top_right_corner => {30.48,25.4,5.08},tpid => 14741},undefined}],[{<<"6a43b2db-73c1-4581-9630-ba57f2907c40">>,6},{<<"204bd021-c9dd-4000-a9a4-a884f042c5fb">>,2}],8,calculated,{scanned,{39,"7",back_39}},"2648.0.C.01-C.02-C.03",false,plan,undefined,{{2020,11,11},{1,50,40}},<<"P4385530">>},scanned}]}],{pending,created},put,false}
+
+
+2020-11-10 20:54:33.667 [warning] <0.19919.905>@put_front_fsm:act_on_putlist:2982 pps_id=39 PpsBin count is 12 with this BinID {39,"7"} and put Qty 8^M
+
+
+
+
+
+(butler_server@localhost)2> rp((butler_server@localhost)2> put_output1:search_by([{put_id,equal,<<"16543405">>}],record).
+{ok,[{put_output1,<<"bd6afe23-4b62-4ad9-be46-7d4cebb3b5af">>,
+                  <<"16543405">>,
+                  {39,"7"},
+                  [{storage_node,<<"4045e2bf-b99d-47ea-8526-4c17520cc002">>,
+                                 item,
+                                 #{audit_marked => false,
+                                   barcode_references => [<<"32331">>],
+                                   barcode_type => nonserialized,base_height => undefined,
+                                   bottom_left_corner => {0,0,0},
+                                   details =>
+                                       <<"{\"product_sku\":\"427255448065\",\"client_id"...>>,
+                                   dimension => {30.48,25.4,5.08},
+                                   handling_type => <<"normal">>,height => 0,is_marked => true,
+                                   label => <<"Item">>,mass => 0.39916096,
+                                   nesting_attributes => undefined,
+                                   orientation_preference => false,
+                                   pick_properties => [{...}],
+                                   positions_occupied => undefined,...},
+                                 undefined}],
+                  [{<<"57331760-c60f-46e5-95a8-ed3231a83b90">>,4}],
+                  4,completed,
+                  {completed,{39,"7",back_39}},
+                  "392.0.C.01-C.02-C.03",false,plan,undefined,
+                  {{2020,11,11},{2,16,25}},
+                  <<"P4385530">>},
+     {put_output1,<<"da3ff8f1-4d63-4b89-b81c-bb52522183ff">>,
+                  <<"16543405">>,
+                  {39,"7"},
+                  [{storage_node,<<"4045e2bf-b99d-47ea-8526-4c17520cc002">>,
+                                 item,
+                                 #{audit_marked => false,
+                                   barcode_references => [<<"32331">>],
+                                   barcode_type => nonserialized,base_height => undefined,
+                                   bottom_left_corner => {0,0,0},
+                                   details =>
+                                       <<"{\"product_sku\":\"427255448065\",\"clien"...>>,
+                                   dimension => {30.48,25.4,5.08},
+                                   handling_type => <<"normal">>,height => 0,is_marked => true,
+                                   label => <<"Item">>,mass => 0.39916096,
+                                   nesting_attributes => undefined,
+                                   orientation_preference => false,
+                                   pick_properties => [...],...},
+                                 undefined}],
+                  [{<<"d425d42e-f025-48a6-bd57-134bc1698ab9">>,6},
+                   {<<"204bd021-c9dd-4000-a9a4-a884f042c5fb">>,2}],
+                  8,completed,
+                  {completed,{39,"7",back_39}},
+                  "2648.0.C.01-C.02-C.03",false,plan,undefined,
+                  {{2020,11,11},{1,56,41}},
+                  <<"P4385530">>}]}
+
+
+
+2020-11-10 20:50:42.816 [info] <0.7551.1044>@put_functions:create_put_tasks:3658 Task = {ppstaskrec,undefined,39,{rackrec,<<"392">>,0},[{ppsbinorderrec,"7",[{taskputplan,{put_output1,<<"bd6afe23-4b62-4ad9-be46-7d4cebb3b5af">>,<<"16543405">>,{39,"7"},[{storage_node,<<"4045e2bf-b99d-47ea-8526-4c17520cc002">>,item,#{audit_marked => false,barcode_references => [<<"32331">>],barcode_type => nonserialized,base_height => undefined,bottom_left_corner => {0,0,0},details => <<"{\"product_sku\":\"427255448065\",\"client_id\":\"1016\"}">>,dimension => {30.48,25.4,5.08},handling_type => <<"normal">>,height => 0,is_marked => true,label => <<"Item">>,mass => 0.39916096,nesting_attributes => undefined,orientation_preference => false,pick_properties => [{14741,<<"32331">>,{12,0}}],positions_occupied => undefined,prod_exclusion_tags => [{<<"face">>,[]},{<<"slot">>,[]},{<<"msu">>,[]},{<<"shelf">>,[]}],put_status => undefined,quantity => 12,stackable_count => inf,stacking => {30.48,25.4,5.08},storage_node_type_id => <<"32331">>,storage_tag_list => [<<"Medium">>,<<"Large">>,<<"Extra_Large">>,<<"Small">>],top_right_corner => {30.48,25.4,5.08},tpid => 14741},undefined}],[{<<"57331760-c60f-46e5-95a8-ed3231a83b90">>,4}],4,calculated,{scanned,{39,"7",back_39}},"392.0.C.01-C.02-C.03",false,plan,undefined,{{2020,11,11},{1,50,41}},<<"P4385530">>},scanned}]}],{pending,created},put,false}^M
+
+
+2020-11-10 20:50:43.046 [info] <0.7551.1044>@put_functions:create_tentative_put_plan:1035 Result : [{<<"2648">>,[{"C",8,[{0,[{"2648.0.C.01-C.02-C.03",8}]}]}]},{<<"392">>,[{"C",12,[{0,[{"392.0.C.01-C.02-C.03",33}]}]}]}]^M
+
+
+
+
+
+
+
+
+
+
+2020-11-10 20:33:20.281 [info] <0.21217.905>@pps_manager:calculate_put:2097 pps_id=39 SeatName : back_39, PpsBinId : "11"^M
+2020-11-10 20:33:20.282 [info] <0.21217.905>@pps_manager:calculate_put:2098 pps_id=39 PutInputList : [{put_entity1,{39,"11"},<<"16543404">>,[{storage_node,<<"47c0efc9-80de-48fa-8375-02730fae7c70">>,item,#{audit_marked => false,barcode_references => [<<"32331">>],barcode_type => nonserialized,base_height => undefined,bottom_left_corner => {0,0,0},details => <<"{\"product_sku\":\"427255448065\",\"client_id\":\"1016\"}">>,dimension => {30.48,25.4,5.08},handling_type => <<"normal">>,height => 0,is_marked => true,label => <<"Item">>,mass => 0.39916096,nesting_attributes => undefined,orientation_preference => false,pick_properties => [{14741,<<"32331">>,{12,0}}],positions_occupied => undefined,prod_exclusion_tags => [{<<"face">>,[]},{<<"slot">>,[]},{<<"msu">>,[]},{<<"shelf">>,[]}],put_status => undefined,quantity => 12,stackable_count => inf,stacking => {30.48,25.4,5.08},storage_node_type_id => <<"32331">>,storage_tag_list => [<<"Medium">>,<<"Large">>,<<"Extra_Large">>,<<"Small">>],top_right_corner => {30.48,25.4,5.08},tpid => 14741},undefined}],undefined,undefined}]^M
+2020-11-10 20:33:20.282 [info] <0.21217.905>@pps_manager:calculate_put:2105 pps_id=39 CombinationFactor: false, AreAllSameProduct true^M
+2020-11-10 20:33:20.282 [info] <0.21217.905>@pps_manager:calculate_put:2159 pps_id=39 PutOutput: [{put_output1,<<"95388448-db75-412c-9123-fff14df18c5b">>,<<"16543404">>,{39,"11"},[{storage_node,<<"47c0efc9-80de-48fa-8375-02730fae7c70">>,item,#{audit_marked => false,barcode_references => [<<"32331">>],barcode_type => nonserialized,base_height => undefined,bottom_left_corner => {0,0,0},details => <<"{\"product_sku\":\"427255448065\",\"client_id\":\"1016\"}">>,dimension => {30.48,25.4,5.08},handling_type => <<"normal">>,height => 0,is_marked => true,label => <<"Item">>,mass => 0.39916096,nesting_attributes => undefined,orientation_preference => false,pick_properties => [{14741,<<"32331">>,{12,0}}],positions_occupied => undefined,prod_exclusion_tags => [{<<"face">>,[]},{<<"slot">>,[]},{<<"msu">>,[]},{<<"shelf">>,[]}],put_status => undefined,quantity => 12,stackable_count => inf,stacking => {30.48,25.4,5.08},storage_node_type_id => <<"32331">>,storage_tag_list => [<<"Medium">>,<<"Large">>,<<"Extra_Large">>,<<"Small">>],top_right_corner => {30.48,25.4,5.08},tpid => 14741},undefined}],undefined,undefined,calculation_pending,{scanned,{39,"11",back_39}},undefined,false,plan,undefined,undefined,<<"P4385529">>}]^M
+
+
+(butler_server@localhost)4> put_output1:search_by([{put_id,equal,<<"16543404">>}],record).
+{ok,[{put_output1,<<"95388448-db75-412c-9123-fff14df18c5b">>,
+                  <<"16543404">>,
+                  {39,"11"},
+                  [{storage_node,<<"47c0efc9-80de-48fa-8375-02730fae7c70">>,
+                                 item,
+                                 #{audit_marked => false,
+                                   barcode_references => [<<"32331">>],
+                                   barcode_type => nonserialized,base_height => undefined,
+                                   bottom_left_corner => {0,0,0},
+                                   details =>
+                                       <<"{\"product_sku\":\"427255448065\",\"client_id"...>>,
+                                   dimension => {30.48,25.4,5.08},
+                                   handling_type => <<"normal">>,height => 0,is_marked => true,
+                                   label => <<"Item">>,mass => 0.39916096,
+                                   nesting_attributes => undefined,
+                                   orientation_preference => false,
+                                   pick_properties => [{...}],
+                                   positions_occupied => undefined,...},
+                                 undefined}],
+                  [{<<"b8ad738b-b577-43b6-899d-9522d3804366">>,11},
+                   {<<"17074f08-43a0-48a9-9c1b-c699debe4007">>,1}],
+                  12,completed,
+                  {completed,{39,"11",back_39}},
+                  "2648.0.C.01-C.02-C.03",false,plan,undefined,
+                  {{2020,11,11},{1,57,46}},
+                  <<"P4385529">>}]}
+
+
+
+2020-11-10 20:56:38.206 [debug] <0.21217.905>@butler_task_functions:remove_entity_from_task:176 pps_id=39 TaskId : {picktask,<<"7cff4a89-530e-4341-8bb5-10dac4020168">>}, OrderId : <<"da3ff8f1-4d63-4b89-b81c-bb52522183ff">>, ItemId : [{<<"32331">>,8}], Amount : 8^M
+2020-11-10 20:56:38.206 [debug] <0.21217.905>@ppstaskrec:remove_item_from_ppsbin_orders:288 pps_id=39 PpsBinOrderRec : {ppsbinorderrec,"11",[{taskputplan,{put_output1,<<"95388448-db75-412c-9123-fff14df18c5b">>,<<"16543404">>,{39,"11"},[{storage_node,<<"47c0efc9-80de-48fa-8375-02730fae7c70">>,item,#{audit_marked => false,barcode_references => [<<"32331">>],barcode_type => nonserialized,base_height => undefined,bottom_left_corner => {0,0,0},details => <<"{\"product_sku\":\"427255448065\",\"client_id\":\"1016\"}">>,dimension => {30.48,25.4,5.08},handling_type => <<"normal">>,height => 0,is_marked => true,label => <<"Item">>,mass => 0.39916096,nesting_attributes => undefined,orientation_preference => false,pick_properties => [{14741,<<"32331">>,{12,0}}],positions_occupied => undefined,prod_exclusion_tags => [{<<"face">>,[]},{<<"slot">>,[]},{<<"msu">>,[]},{<<"shelf">>,[]}],put_status => undefined,quantity => 12,stackable_count => inf,stacking => {30.48,25.4,5.08},storage_node_type_id => <<"32331">>,storage_tag_list => [<<"Medium">>,<<"Large">>,<<"Extra_Large">>,<<"Small">>],top_right_corner => {30.48,25.4,5.08},tpid => 14741},undefined}],[{<<"b8ad738b-b577-43b6-899d-9522d3804366">>,11},{<<"17074f08-43a0-48a9-9c1b-c699debe4007">>,1}],12,calculated,{scanned,{39,"11",back_39}},"2648.0.C.01-C.02-C.03",false,plan,undefined,{{2020,11,11},{1,33,20}},<<"P4385529">>},scanned}]}^M
+
+
+
+
+2020-11-10 20:56:38.206 [debug] <0.21217.905>@ppstaskrec:remove_item_from_ppsbin_orders:288 pps_id=39 PpsBinOrderRec : {ppsbinorderrec,"7",[{taskputplan,{put_output1,<<"da3ff8f1-4d63-4b89-b81c-bb52522183ff">>,<<"16543405">>,{39,"7"},[{storage_node,<<"4045e2bf-b99d-47ea-8526-4c17520cc002">>,item,#{audit_marked => false,barcode_references => [<<"32331">>],barcode_type => nonserialized,base_height => undefined,bottom_left_corner => {0,0,0},details => <<"{\"product_sku\":\"427255448065\",\"client_id\":\"1016\"}">>,dimension => {30.48,25.4,5.08},handling_type => <<"normal">>,height => 0,is_marked => true,label => <<"Item">>,mass => 0.39916096,nesting_attributes => undefined,orientation_preference => false,pick_properties => [{14741,<<"32331">>,{12,0}}],positions_occupied => undefined,prod_exclusion_tags => [{<<"face">>,[]},{<<"slot">>,[]},{<<"msu">>,[]},{<<"shelf">>,[]}],put_status => undefined,quantity => 12,stackable_count => inf,stacking => {30.48,25.4,5.08},storage_node_type_id => <<"32331">>,storage_tag_list => [<<"Medium">>,<<"Large">>,<<"Extra_Large">>,<<"Small">>],top_right_corner => {30.48,25.4,5.08},tpid => 14741},undefined}],[{<<"d425d42e-f025-48a6-bd57-134bc1698ab9">>,6},{<<"204bd021-c9dd-4000-a9a4-a884f042c5fb">>,2}],8,calculated,{scanned,{39,"7",back_39}},"2648.0.C.01-C.02-C.03",false,plan,undefined,{{2020,11,11},{1,50,41}},<<"P4385530">>},scanned}]}^M

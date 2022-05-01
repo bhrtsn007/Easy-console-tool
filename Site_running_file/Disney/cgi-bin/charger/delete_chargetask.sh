@@ -13,7 +13,7 @@ delete_chargetask () {
     if [ ! -n "$bot_ip" ]
     then
         echo "Butler is Not Present....Deleting a charge task"
-        sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript chargetaskrec delete "[<<\"$1\">>]."
+        curl -X POST -H 'Content-Type: application/json' -d '{"table_name":"chargetask","key" : "$1"}' localhost:8181/api/mhs/task/delete
         echo "<br>"
         echo "Ok....Done"
         
@@ -29,10 +29,10 @@ echo '<html>'
 echo '<head>'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
 echo '<title>Delete a Charge Task</title>'
+echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
 echo '</head>'
-echo '<body style="background-color:#B8B8B8">'
-
-echo '<img src="https://scmtech.in/assets/images/grey.png" style="position:fixed; TOP:5px; LEFT:850px; WIDTH:400px; HEIGHT:80px;"></img>'
+echo '<body>'
+echo '<div class=container>'
 echo "<br>"
 echo "<br>"
 echo "<br>"
@@ -70,6 +70,7 @@ echo "<br>"
      delete_chargetask $XX
      
   fi
+echo '</div>'
 echo '</body>'
 echo '</html>'
 

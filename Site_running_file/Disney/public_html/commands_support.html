@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Easy console</title>
+    <link rel="stylesheet" type="text/css" href="cssfile.css">
+</head>
+<body>  
+<div class="tabContainer">
+<div class="buttonContainer">
+<h1><img src = "logo12.jpg"></h1>
+        <button onclick="showPanel(0,'#ffffff')">Butler</button>
+		<button onclick="showPanel(1,'#ffffff')">Task Manager</button>
+        <button onclick="showPanel(2,'#ffffff')">Orders</button>
+        <button onclick="showPanel(3,'#ffffff')">Msu</button>
+		<button onclick="showPanel(4,'#ffffff')">Charger</button>
+		<button onclick="showPanel(5,'#ffffff')">Station Recovery</button>
+		<button onclick="showPanel(6,'#ffffff')">Others</button>
+</div>
+<div class="tabPanel">
+	    <h2><p align =center> <img src = "butler.png"></h2>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/butler/get_butler.sh', '_blank');" value=" Get Butler Info"/></br>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/butler/Pause_butler.sh', '_blank');" value=" Pause a Butler"/></br>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/butler/UnPause_butler.sh', '_blank');" value=" UnPause a Butler"/></br>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/butler/Purge_butler.sh', '_blank');" value=" Purge a Butler"/></br>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/butler/loop_test_without_count.sh', '_blank');" value=" Unlimited Loop Test"/></br>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/butler/unlimited_lift_test.sh', '_blank');" value=" Unlimited Lift Test"/></br>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/butler/stop_loop.sh', '_blank');" value=" Stop a loop test"/></br>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/butler/remrestart.sh', '_blank');" value=" Remrestart a Butler"/></br>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/butler/get_camera.sh', '_blank');" value=" Get Camera Information"/></br>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/butler/init_all_butler.sh', '_blank');" value=" Sending Init to All Butler"/></br>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/butler/mdu_update.sh', '_blank');" value=" MDU Update of any Butler"/></br>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/butler/reservation_info.sh', '_blank');" value=" Reservation Info"/></br>
+</div>
+<div class="tabPanel">
+<h2><p align =center> <img src = "task.png"></h2> 
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/ppstaskrec_id.sh', '_blank');" value=" Specific PPS taskrec"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/pick_task_pending_pps.sh', '_blank');" value=" All pending pick task on PPS"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/pick_task_on_pps_with_order_id.sh', '_blank');" value=" All pending pick task on PPS with Order id details"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/pps_task_pending_system.sh', '_blank');" value=" All pending pick task in the system"/></br>
+		
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/auditrec_id.sh', '_blank');" value=" Specific audit rec"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/auditrec_display_id.sh', '_blank');" value=" Audit rec by Display id"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/all_auditrec.sh', '_blank');" value=" Get all auditrec not complete"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/auditrec_pps.sh', '_blank');" value=" Get all auditrec on PPS"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/auditlinerec_pending.sh', '_blank');" value=" Get all auditlinerec associated to auditrec"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/audittaskrec_id.sh', '_blank');" value=" Specific audit taskrec"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/audittaskpending_system.sh', '_blank');" value=" All audit task pending in the system"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/audittask_pps.sh', '_blank');" value=" All pending audit task on PPS"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/block_storage_node.sh', '_blank');" value=" Get all blocked storage node because of Audit"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/audit_help.sh', '_blank');" value=" Audit/Auditline Cycle"/></br>
+
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/movetaskrec_id.sh', '_blank');" value=" Specific move taskrec"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/move_task_pending_system.sh', '_blank');" value=" All move task pending in the system"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/move_task_pending_butler.sh', '_blank');" value=" All move task pending on one butler"/></br>
+
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/butler_associated_to_task.sh', '_blank');" value=" Butler on which task is assigned"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/task_associated_to_rack.sh', '_blank');" value=" All task on one MSU"/></br>
+
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/change_status_to_storing.sh', '_blank');" value=" Change Task status to storing"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/change_status_to_complete.sh', '_blank');" value=" Change Task status to complete"/></br>
+
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/butlerstatus_error.sh', '_blank');" value=" Change Butler status to Error"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/clear_task_butler_ready.sh', '_blank');" value=" Clear Task of Butler and make status ready"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/clear_task_butler_dead.sh', '_blank');" value=" Clear Task of Butler and make status dead"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/clear_subtask_butler.sh', '_blank');" value=" Clear Sub Task of Butler"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/Task/storing_task.sh', '_blank');" value=" Storing task to created/complete"/></br>
+</div>
+<div class="tabPanel">
+<h2><p align =center> <img src = "order.png"></h2>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/order/all_created_order.sh', '_blank');" value=" All Created Order"/></br>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/order/all_pending_order.sh', '_blank');" value=" All Pending Order"/></br>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/order/all_temp_unfullilable_order.sh', '_blank');" value=" All Temp_unfullilable Order"/></br>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/order/temp_unfulfillable_order.sh', '_blank');" value=" Temporary unfulfillable order detail"/></br>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/order/specific_order.sh', '_blank');" value=" Order Details(External Id from Internal ID)"/></br>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/order/pick_instruction.sh', '_blank');" value=" Get Pick Instruction from Order ID"/></br>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/order/pbt_breached.sh', '_blank');" value=" All PBT breach order"/></br>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/order/add_order.sh', '_blank');" value=" Add Order"/></br>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/order/call_order.sh', '_blank');" value=" Call Order Manager"/></br>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/order/sideline_order.sh', '_blank');" value=" Sideline Any Order"/></br>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/order/resume_order.sh', '_blank');" value=" Resume any Order"/></br>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/order/internal_order_id.sh', '_blank');" value=" Get Internal Order ID"/></br>
+	    <br><input type ="button" onclick="window.open('/cgi-bin/order/order_from_core_platform.sh', '_blank');" value=" Get Order Status from Core and Platform"/></br>
+</div>
+   
+<div class="tabPanel">
+<h2><p align =center> <img src = "msu.png"></h2>
+		<br><input type ="button" onclick="window.open('/cgi-bin/MSU/rackinfo.sh', '_blank');" value=" Get Rack info"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/MSU/check_rack_CG.sh', '_blank');" value=" Get Rack CG"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/MSU/update_rack.sh', '_blank');" value=" Update Rack Location"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/MSU/rack_details_from_coordinates.sh', '_blank');" value=" Rack Details from Coordinates"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/MSU/sku_inventory.sh', '_blank');" value=" Get Inventory information from SKU ID"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/MSU/storage_info.sh', '_blank');" value=" Specific storage info"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/MSU/available_storage.sh', '_blank');" value=" Available storage info"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/MSU/put_block.sh', '_blank');" value=" Block rack from Put"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/MSU/put_unblock.sh', '_blank');" value=" Unblock rack from Put"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/MSU/all_put_block_slot.sh', '_blank');" value=" Get all put block slots report"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/MSU/unblock_put_block_slot.sh', '_blank');" value=" Unblock all put block slots"/></br>
+</div>
+	
+<div class="tabPanel">
+<h2><p align =center> <img src = "charger.png"></h2>
+		<br><input type ="button" onclick="window.open('/cgi-bin/charger/get_charger.sh', '_blank');" value=" Get Charger info"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/charger/charger_all.sh', '_blank');" value=" Get all charger info"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/charger/chargertaskrec.sh', '_blank');" value=" Get all Charge Task"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/charger/delete_chargetask.sh', '_blank');" value=" Delete a Charge Task"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/charger/fix_charger.sh', '_blank');" value=" Fix Charger Error"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/charger/send_charger_init.sh', '_blank');" value=" Send Init to Charger"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/charger/check_commit_id.sh', '_blank');" value=" Get COMMIT ID for all chargers"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/charger/clear_attached_butler.sh', '_blank');" value=" Clear attached Butler from Charger"/></br>
+</div>
+
+<div class="tabPanel">
+<h2><p align =center> <img src = "pps.png"></h2>
+		<br><input type ="button" onclick="window.open('/cgi-bin/pps/active_pps.sh', '_blank');" value=" Get All Active/Online PPS"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/pps/all_empty_bin.sh', '_blank');" value=" All Empty Bin in System"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/pps/all_pps_bin.sh', '_blank');" value=" All PPS Bin on PPS"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/pps/all_ppsbinrec.sh', '_blank');" value=" All PPSbinrec on PPS"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/pps/ppsbinrec_id.sh', '_blank');" value=" Specific PPSbinrec"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/pps/ppsinfo_id.sh', '_blank');" value=" PPS Info by ID"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/pps/restart_pps.sh', '_blank');" value=" Restart PPS Organise"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/pps/specific_pps_bin.sh', '_blank');" value=" Specific PPS Bin"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/pps/reset_ppsbin.sh', '_blank');" value=" Reset Any PPS Bin"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/pps/reset_seat.sh', '_blank');" value=" Reset PPS seat"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/pps/pps_crash.sh', '_blank');" value=" PPS Crash report for any PPS"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/pps/pps_sanity.sh', '_blank');" value=" Check PPS Sanity for any PPS"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/pps/station_help.sh', '_blank');" value=" Station recovery Help"/></br>
+		<br><input type ="button" onclick="window.open('/cgi-bin/pps/system_idle.sh', '_blank');" value=" Check system Idle"/></br>
+
+</div>
+</div>
+<script src="Scriptjava.js"></script>
+</body>
+</html>

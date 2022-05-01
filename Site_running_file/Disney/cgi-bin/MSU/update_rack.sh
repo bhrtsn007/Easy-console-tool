@@ -13,7 +13,7 @@ Rack_position_update () {
             echo "You have type wrong barcode"    
         else
             echo "Updating rack location"
-            sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript rackinfo update_rack_position_with_updates "[<<\"$1\">>,$3,\""$2"\", 'null']." 
+            sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript mhs_operation_utilities update_rack_position "[<<\"$1\">>,$3,\""$2"\", 'null']." 
         fi    
     else
         echo "Please type correct lifted state "
@@ -26,10 +26,10 @@ echo '<html>'
 echo '<head>'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
 echo '<title>Update Rack Location</title>'
+echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
 echo '</head>'
-echo '<body style="background-color:#B8B8B8">'
-
-echo '<img src="https://scmtech.in/assets/images/grey.png" style="position:fixed; TOP:5px; LEFT:850px; WIDTH:400px; HEIGHT:80px;"></img>'
+echo '<body>'
+echo '<div class=container>'
 echo "<br>"
 echo "<br>"
 echo "<br>"
@@ -80,6 +80,7 @@ echo "<br>"
      echo '<br>'
      Rack_position_update $XX $YY $ZZ $AA
   fi
+echo '</div>'
 echo '</body>'
 echo '</html>'
 

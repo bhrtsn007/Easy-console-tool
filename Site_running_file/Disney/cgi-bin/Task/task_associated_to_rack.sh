@@ -11,6 +11,11 @@ task_associated_to_rack () {
         echo '<pre>'
         sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript audittaskrec search_by "[[{'rack','equal',{'rackrec',<<\"$1\">>,0}},{'status', 'notequal', 'complete'}], 'record']."
         echo '</pre>'
+        echo "Msu rearrangement Task associated to this rack"
+        echo "<br>"
+        echo '<pre>'
+        sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript msurearrangementtaskrec search_by "[[{'rack','equal',{'rackrec',<<\"$1\">>,0}},{'status', 'notequal', 'complete'}], 'record']."
+        echo '</pre>'
     elif [ "$2" -eq "1" ]; then
         echo "PPS Task associated to this rack"
         echo "<br>"
@@ -21,6 +26,11 @@ task_associated_to_rack () {
         echo "<br>"
         echo '<pre>'
         sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript audittaskrec search_by "[[{'rack','equal',{'rackrec',<<\"$1\">>,1}},{'status', 'notequal', 'complete'}], 'record']."
+        echo '</pre>'
+        echo "Msu rearrangement Task associated to this rack"
+        echo "<br>"
+        echo '<pre>'
+        sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript msurearrangementtaskrec search_by "[[{'rack','equal',{'rackrec',<<\"$1\">>,1}},{'status', 'notequal', 'complete'}], 'record']."
         echo '</pre>'
     else
         echo "Wrong Face entered"
@@ -33,10 +43,10 @@ echo '<html>'
 echo '<head>'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
 echo '<title>All task on one MSU</title>'
+echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
 echo '</head>'
-echo '<body style="background-color:#B8B8B8">'
-
-echo '<img src="https://scmtech.in/assets/images/grey.png" style="position:fixed; TOP:5px; LEFT:850px; WIDTH:400px; HEIGHT:80px;"></img>'
+echo '<body>'
+echo '<div class=container>'
 echo "<br>"
 echo "<br>"
 echo "<br>"
@@ -78,6 +88,7 @@ echo "<br>"
      echo '<br>'
      task_associated_to_rack $XX $YY  
   fi
+echo '</div>'
 echo '</body>'
 echo '</html>'
 

@@ -30,9 +30,9 @@ echo  'a:hover, a:active {'\
       '}'
 	  
 echo '</style>'
+echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
 echo '</head>'
-echo '<body style="background-color:#B8B8B8">'
-
+echo '<body>'
 echo '<div class="vertical-menu"><img src="https://scmtech.in/assets/images/grey.png" style="position:relative; TOP:5px; LEFT:850px; WIDTH:400px; HEIGHT:80px;"></img>'
 
 echo "<br>"
@@ -49,7 +49,7 @@ echo '<div class="vertical-menu"></div><a href="/cgi-bin/butler/UnPause_butler.s
 
 echo  '<div class="vertical-menu"></div><a href="/cgi-bin/butler/Purge_butler.sh" class="active"><b>Purge a Butler</b></a>'
 
-echo  '<div class="vertical-menu"></div><a href="/cgi-bin/butler/loop_test_with_count.sh" class="active"><b>Loop test with count</b></a>'
+#echo  '<div class="vertical-menu"></div><a href="/cgi-bin/butler/loop_test_with_count.sh" class="active"><b>Loop test with count</b></a>'
 
 echo  '<div class="vertical-menu"></div><a href="/cgi-bin/butler/loop_test_without_count.sh" class="active"><b>Unlimited Loop Test</b></a>'
 
@@ -67,7 +67,9 @@ echo '<div class="vertical-menu"></div><a href="/cgi-bin/butler/init_all_butler.
 
 echo '<div class="vertical-menu"></div><a href="/cgi-bin/butler/mdu_update.sh" class="active"><b>MDU Update of any Butler</b></a>'
 
+echo '<div class="vertical-menu"></div><a href="/cgi-bin/butler/reservation_info.sh" class="active"><b>Reservation Info</b></a>'
 
+echo '</div>'
 echo '</body>'
 echo '</html>'
 

@@ -1,15 +1,39 @@
 #!/bin/bash
 active_pps () {
-    echo "All PPS which is active and Login is: "
+    echo "All PPS which is active and Login are: "
     echo "<br>"
     if [ "$1" -eq "1" ]; then
       echo '<pre>'
-       sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript ppsnode search_by "[[{'active_status', 'equal', 'true'}], 'key']."
-       echo '</pre>'
+      sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript ppsnode search_by "[[{'active_status', 'equal', 'true'}], 'key']."
+      echo '</pre>'
+      echo "PPS which is in Pick"
+      echo '<pre>'
+      sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript ppsnode search_by "[[{'active_status', 'equal', 'true'},{'mode', 'equal', 'pick'}], 'key']."
+      echo '</pre>'
+      echo "PPS which is in Put"
+      echo '<pre>'
+      sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript ppsnode search_by "[[{'active_status', 'equal', 'true'},{'mode', 'equal', 'put'}], 'key']."
+      echo '</pre>'
+      echo "PPS which is in Audit"
+      echo '<pre>'
+      sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript ppsnode search_by "[[{'active_status', 'equal', 'true'},{'mode', 'equal', 'audit'}], 'key']."
+      echo '</pre>'
     elif [ "$1" -eq "2" ]; then
       echo '<pre>'
-       sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript ppsnode search_by "[[{'active_status', 'equal', 'true'}], 'record']."
-       echo '</pre>'
+      sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript ppsnode search_by "[[{'active_status', 'equal', 'true'}], 'record']."
+      echo '</pre>'
+      echo "PPS which is in Pick"
+      echo '<pre>'
+      sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript ppsnode search_by "[[{'active_status', 'equal', 'true'},{'mode', 'equal', 'pick'}], 'record']."
+      echo '</pre>'
+      echo "PPS which is in Put"
+      echo '<pre>'
+      sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript ppsnode search_by "[[{'active_status', 'equal', 'true'},{'mode', 'equal', 'put'}], 'record']."
+      echo '</pre>'
+      echo "PPS which is in Audit"
+      echo '<pre>'
+      sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript ppsnode search_by "[[{'active_status', 'equal', 'true'},{'mode', 'equal', 'audit'}], 'record']."
+      echo '</pre>'
     else 
         echo "Wrong Choice"
     fi
@@ -21,10 +45,10 @@ echo '<html>'
 echo '<head>'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
 echo '<title>Get All Active/Online PPS</title>'
+echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
 echo '</head>'
-echo '<body style="background-color:#B8B8B8">'
-
-echo '<img src="https://scmtech.in/assets/images/grey.png" style="position:fixed; TOP:5px; LEFT:850px; WIDTH:400px; HEIGHT:80px;"></img>'
+echo '<body>'
+echo '<div class=container>'
 echo "<br>"
 echo "<br>"
 echo "<br>"
@@ -63,6 +87,7 @@ echo "<br>"
      active_pps $XX    
      
   fi
+echo '</div>'
 echo '</body>'
 echo '</html>'
 

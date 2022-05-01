@@ -1,14 +1,15 @@
 #!/bin/bash
 all_auditrec () {
-    echo "All Audit rec not completed in the system"
+    echo "All Auditrec not completed in the system"
     echo "<br>"
     if [ "$1" -eq "1" ]; then
+      echo "{ok,[[audit_id,display_id,status,updated_time]]}"
       echo '<pre>'
-       sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript auditrec search_by "[[{'status', 'notequal', 'audit_completed'},{'status','notequal','audit_resolved'},{'status','notequal','audit_cancelled'},{'status','notequal','audit_reaudited'}], 'key']."
+       sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript auditrec search_by "[[{'status', 'notequal', 'audit_completed'},{'status','notequal','audit_resolved'},{'status','notequal','audit_cancelled'},{'status', 'notequal', 'audit_aborted'},{'status','notequal','audit_reaudited'}], ['audit_id','display_id','status','updated_time']]."
        echo '</pre>'
     elif [ "$1" -eq "2" ]; then
       echo '<pre>'
-        sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript auditrec search_by "[[{'status', 'notequal', 'audit_completed'},{'status','notequal','audit_resolved'},{'status','notequal','audit_cancelled'},{'status','notequal','audit_reaudited'}], 'record']."
+        sudo /opt/butler_server/erts-9.3.3.6/bin/escript /home/gor/rpc_call.escript auditrec search_by "[[{'status', 'notequal', 'audit_completed'},{'status','notequal','audit_resolved'},{'status','notequal','audit_cancelled'},{'status', 'notequal', 'audit_aborted'},{'status','notequal','audit_reaudited'}], 'record']."
         echo '</pre>'
     else
         echo "Wrong key pressed"
@@ -21,10 +22,10 @@ echo '<html>'
 echo '<head>'
 echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">'
 echo '<title>All audit Task for status rack_picked in system</title>'
+echo '<link rel="stylesheet" href="/rack.css" type="text/css">'
 echo '</head>'
-echo '<body style="background-color:#B8B8B8">'
-
-echo '<img src="https://scmtech.in/assets/images/grey.png" style="position:fixed; TOP:5px; LEFT:850px; WIDTH:400px; HEIGHT:80px;"></img>'
+echo '<body>'
+echo '<div class=container>'
 echo "<br>"
 echo "<br>"
 echo "<br>"
@@ -62,6 +63,7 @@ echo "<br>"
      echo '<br>'
      all_auditrec $XX
   fi
+echo '</div>'
 echo '</body>'
 echo '</html>'
 
